@@ -9,7 +9,6 @@
             background: linear-gradient(315deg, rgb(55, 73, 112) 60%, rgb(51, 102, 96) 100%);
             background-repeat: no-repeat;
             background-attachment: fixed;
-            font-size: 25px;
         }
 
         form {

@@ -169,11 +169,11 @@ else{
     <h2 style="text-align: center;"> Report your Complains here: </h2>
     <form id="report" action="?" method="post">
         <label for="citizen"><b>Citizen id:</b></label>
-        <input type="text" name="citizen" id="citizen">
+        <input type="text" name="citizen" id="citizen" required>
         <br><br>
         <label for="subject"><b>Complain:</b></label><br>
         <textarea id="subject" placeholder="Write your complain here" name="complain" rows="5" cols="80"
-            style="height:200px"></textarea><br>
+            style="height:200px" required></textarea><br>
         <button type="submit" name="submit2">Submit</button>
         
 
@@ -183,13 +183,15 @@ else{
    <h1 style="text-align: center">
    <?php 
     if(!$conn){
-       echo "blalal";
+       echo "Server not connected";
     }
 
 
        if(isset($_POST["submit2"]))
        {
-           $sql="select * from citizen where ID_No like $_POST[citizen]";
+           $citizenid=htmlspecialchars(trim($_POST['citizen']));
+           if (preg_match("/^[0-9]*$/",$citizenid)){
+           $sql="select * from citizen where ID_No like $citizenid";
            $data2=mysqli_query($conn,$sql);
            $row=mysqli_num_rows($data2);
            if($row!=0){
@@ -202,10 +204,15 @@ else{
                echo "Complain was registered!!";
            }
            else
-           echo "Error occured!!";}
+           echo "Error occured!!";
+        }
            else
            echo "Invalid citizen Id";
        }
+       else
+           echo "Invalid citizen Id";
+       
+    }
  
    
    ?>
@@ -231,3 +238,9 @@ else{
 </script>
 
 </html>
+
+<script>
+if ( window.history.replaceState ) {
+  window.history.replaceState( null, null, window.location.href );
+}
+</script>

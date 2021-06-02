@@ -103,7 +103,7 @@ span.psw {
   </div>
 
   <div class="container" style="background-color: aquamarine;">
-    <button type="button" class="cancelbtn">Cancel</button>
+    <button type="button" class="cancelbtn" onclick="document.location='index.html'">Cancel</button>
   </div>
 
 

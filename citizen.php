@@ -111,9 +111,9 @@ if (!$conn){
 
 if(isset($_POST["submit1"])){
 
-$citizenid=htmlspecialchars(@$_POST["citizen"]);
+$citizenid=htmlspecialchars(trim(@$_POST["citizen"]));
+if (preg_match("/^[0-9]*$/",$citizenid)){
 $birthdate=@$_POST["birth_date"];
-$citizenid=trim($citizenid);
 $err="";
 $sqlquery="SELECT * FROM citizen where ID_No like $citizenid";
 $data=mysqli_query($conn, $sqlquery);
@@ -159,6 +159,10 @@ if ($err == ""){
 else{
     //header("location:index.html");
   echo "<script type='text/javascript'>alert('$err');</script>";
+}
+}
+else{
+  echo "<script type='text/javascript'>alert('Invalid Citizen ID');</script>";
 }
 }
 ?>

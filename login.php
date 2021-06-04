@@ -1,3 +1,9 @@
+<?php if(isset($_SESSION['username'])){
+    header("location: adminpage.php");
+    exit;
+  }
+  ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -108,6 +114,7 @@ span.psw {
 
 
   <?php
+  
 
 $host="localhost";
 $dbusername="root";
@@ -121,6 +128,7 @@ if(!$conn)
     echo "Server is not connected";
 
 }
+
 
 if(isset($_POST["submit"]))
 {
@@ -142,6 +150,13 @@ if($total>0)
 if($result["E_ID"]==$username && password_verify($password,$result["Password"]))
 //if($result["E_ID"]==$username && $password==$result["Password"])
 {
+  session_start();
+  $_SESSION["username"]=$username;
+  //$_SESSION["id"]=$id;
+  $_SESSION["loggedin"]=true;
+
+  //redirect to home page
+  
 
 // header("refresh:0;url=index.html");
 header("location: adminpage.php");

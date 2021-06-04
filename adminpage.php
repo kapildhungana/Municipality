@@ -1,3 +1,12 @@
+<?php
+//include("simple_html_dom.php");
+session_start();
+if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!==true){
+    header('location: login.php');
+}
+?>
+
+
 <!DOCTYPE html>
 <html>
 
@@ -129,7 +138,7 @@
 
     <span style="float:right;margin-right: 10px;">
       <a href="reset.php">ResetPassword</a>
-      <a href="index.html">Logout</a>
+      <a href="logout.php">Logout</a>
     </span>
   </div>
   <main>

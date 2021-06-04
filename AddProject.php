@@ -145,7 +145,7 @@
     $conn=mysqli_connect($host, $dbusername, $dbpassword, $dbanme);
 
     if(isset($_POST["submit"])){
-        echo "i am done";
+        //echo "i am done";
         $budget = $_POST["budget"];
         $name = $_POST["name"];
         $number = $_POST["number"];
@@ -155,7 +155,7 @@
         $end = $_POST["end"];
         $depart = $_POST["depart"]; 
         $sqlquery = "INSERT INTO projects(Budget, P_Name, P_No, P_Company, P_Location,Start_Date, End_Date, D_No) VALUES( $budget, '$name' , $number , '$company' , '$location' , '$start' , '$end' , $depart)";
-        echo "INSERT INTO projects(Budget, P_Name, P_No, P_Company, P_Location,Start_Date, End_Date, D_No) VALUES( $budget, '$name' , $number , '$company' , '$location' , '$start' , '$end' , $depart)";
+       // echo "INSERT INTO projects(Budget, P_Name, P_No, P_Company, P_Location,Start_Date, End_Date, D_No) VALUES( $budget, '$name' , $number , '$company' , '$location' , '$start' , '$end' , $depart)";
         $data=mysqli_query($conn, $sqlquery);
         if($data){
             echo "<script type='text/javascript'>alert('Data Entered Successfully');</script>";

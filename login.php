@@ -164,13 +164,17 @@ header("location: adminpage.php");
 }
 else{
     $message = "Username and/or Password incorrect.\\nTry again.";
-  echo "<script type='text/javascript'>alert($hashed');</script>";
-    header("refresh:0;url=login.php");
+  echo "<script type='text/javascript'>alert('$message');</script>";
+    //header("refresh:0;url=login.php");
    
 
 }
 }
+$message = "Username and/or Password incorrect.\\nTry again.";
+  echo "<script type='text/javascript'>alert('$message');</script>";
 }
+$message = "Username and/or Password incorrect.\\nTry again.";
+  echo "<script type='text/javascript'>alert('$message');</script>";
 }
 
 ?>
@@ -180,3 +184,9 @@ else{
 </div>
 </body>
 </html>
+
+<script>
+if ( window.history.replaceState ) {
+  window.history.replaceState( null, null, window.location.href );
+}
+</script>

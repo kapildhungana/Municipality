@@ -13,10 +13,8 @@
         }
 
         form {
-            border: 3px solid #f1f1f1;
             margin: 5% 10%;
             padding: 10px;
-            background-color: rgb(164, 187, 187);
         }
 
         #hide{
@@ -26,8 +24,9 @@
             width:60%;
             z-index: 1;
             opacity:1;
-            background-color: antiquewhite;
-            border:solid #ddd;
+            background-color: rgb(255, 255, 255);
+            border: 1px solid #ddd;
+            border-radius: 4px;
             display: none;
         }
 
@@ -46,10 +45,13 @@
         }
 
         button {
+            border: none;
             margin: 0;
-            padding: 14px 16px;
-            background-color: rgb(245, 30, 30);
+            padding: 12px 16px;
+            background-color: #12a81a;
             color: white;
+            font-size: 1rem;
+            min-width: 160px;
         }
 
         .btn:hover {
@@ -63,9 +65,19 @@
         }
 
         .topnav a.active {
-            background-color: #04AA6D;
+            background-color: #12a81a;
             color: white;
         }
+
+        .topnav span {
+            float: right;
+            margin-right: 4%;
+            height: 100%;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+
         .main{
           
             margin: 8% 8% 2% 8%;
@@ -73,6 +85,24 @@
             justify-content: center;
         }
     
+        .headline {
+            padding: 1em;
+            margin-top: 2em;
+            font-size: 2rem;
+            color: #12a81a;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .main img{
+            height: 40%;
+            width: 40%;
+            min-height: 100px;
+            min-width: 100px;
+            max-height: 300px;
+            max-width: 300px;
+        }
     </style>
 </head>
 
@@ -87,7 +117,7 @@
             <img src="logo.png" height="45px" width="45px" alt="logo">
             </a>
 
-        <span style="float:right;margin-right: 10px;">
+        <span>
             <a href="register.php">EmpSignup</a>
             <a href="login.php">Emplogin</a>
             <button class="btn" onclick=citizenquery()>Citizen Query</button>
@@ -95,10 +125,10 @@
     </div>
 <div>
     <div class="main">
-        <img src="logo.png" height="35%" width="35%" alt="">
+        <img src="logo.png"alt="Logo">
         <!-- <h2>Municipality works made easier!!!</h2> -->
     </div>
-    <h2 style="text-align: center;">Municipality works made easier!!!</h2>
+    <h2 class="headline">Municipality works made easier!!!</h2>
 </div>
 <div id="hide">
     <h2 style="text-align: center;"> Enter your ID and Birth Date </h2>
